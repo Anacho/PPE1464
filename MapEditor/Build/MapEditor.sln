@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapEditor", "MapEditor\MapEditor.csproj", "{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Master|ARM = Master|ARM
+		Master|x86 = Master|x86
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Debug|ARM.Build.0 = Debug|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Debug|x86.ActiveCfg = Debug|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Debug|x86.Build.0 = Debug|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Debug|x86.Deploy.0 = Debug|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Master|ARM.ActiveCfg = Master|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Master|ARM.Build.0 = Master|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Master|ARM.Deploy.0 = Master|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Master|x86.ActiveCfg = Master|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Master|x86.Build.0 = Master|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Master|x86.Deploy.0 = Master|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Release|ARM.ActiveCfg = Release|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Release|ARM.Build.0 = Release|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Release|ARM.Deploy.0 = Release|ARM
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Release|x86.ActiveCfg = Release|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Release|x86.Build.0 = Release|x86
+		{8DF5CA1F-5FF6-4A58-BB93-B81103B18C1D}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

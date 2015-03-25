@@ -46,7 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HealthBar.cs" />
+     <Compile Include="Assets\Map\Castle.cs" />
+     <Compile Include="Assets\Map\Game.cs" />
+     <Compile Include="Assets\Map\Spawn.cs" />
+     <Compile Include="Assets\Map\TowerSlot.cs" />
+     <Compile Include="Assets\Menu (2).cs" />
      <Compile Include="Assets\Menu.cs" />
+     <Compile Include="Assets\Tower\Bullet\Bullet.cs" />
+     <Compile Include="Assets\Tower\Tower.cs" />
+     <Compile Include="Assets\Unite\Robot\AgentRobot.cs" />
+     <Compile Include="Assets\Unite\Robot\Robot.cs" />
+     <Compile Include="Assets\Unite\Teddy\Agent.cs" />
+     <Compile Include="Assets\Unite\Teddy\Locomotion\Scripts\Locomotion.cs" />
+     <Compile Include="Assets\Unite\Teddy\Teddy.cs" />
+     <Compile Include="Assets\Unite\Unite.cs" />
      <Compile Include="Assets\_scripts\AreaSlot.cs" />
      <Compile Include="Assets\_scripts\Controller.cs" />
      <Compile Include="Assets\_scripts\PlayerController.cs" />

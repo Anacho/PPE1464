@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: 84c2ba9a34ec68e44a3ef7a4ffb9c96d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube_001
+    100004: Cube_002
+    100006: Cube_003
+    100008: Cylinder
+    100010: //RootNode
+    100012: Roue
+    100014: Roue_001
+    100016: Roue_002
+    100018: Roue_003
+    100020: Roue_004
+    100022: Roue_005
+    400000: Cube
+    400002: Cube_001
+    400004: Cube_002
+    400006: Cube_003
+    400008: Cylinder
+    400010: //RootNode
+    400012: Roue
+    400014: Roue_001
+    400016: Roue_002
+    400018: Roue_003
+    400020: Roue_004
+    400022: Roue_005
+    2300000: Cube
+    2300002: Cube_001
+    2300004: Cube_002
+    2300006: Cube_003
+    2300008: Cylinder
+    2300010: Roue
+    2300012: Roue_001
+    2300014: Roue_002
+    2300016: Roue_003
+    2300018: Roue_004
+    2300020: Roue_005
+    3300000: Cube
+    3300002: Cube_001
+    3300004: Cube_002
+    3300006: Cube_003
+    3300008: Cylinder
+    3300010: Roue
+    3300012: Roue_001
+    3300014: Roue_002
+    3300016: Roue_003
+    3300018: Roue_004
+    3300020: Roue_005
+    4300000: Cube_003
+    4300002: Cylinder
+    4300004: Cube_001
+    4300006: Cube_002
+    4300010: Roue_005
+    4300012: Roue_004
+    4300014: Roue_003
+    4300016: Roue_002
+    4300018: Roue_001
+    4300020: Roue
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      - path: Cube_002
+        weight: 1
+      - path: Cube_003
+        weight: 1
+      - path: Cube_003/Cylinder
+        weight: 1
+      - path: Roue
+        weight: 1
+      - path: Roue_001
+        weight: 1
+      - path: Roue_002
+        weight: 1
+      - path: Roue_003
+        weight: 1
+      - path: Roue_004
+        weight: 1
+      - path: Roue_005
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

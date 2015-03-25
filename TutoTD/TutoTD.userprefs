@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tower\Tower.cs">
+    <Files>
+      <File FileName="Assets\Tower\Tower.cs" Line="70" Column="27" />
+      <File FileName="Assets\Map\Castle.cs" Line="49" Column="34" />
+      <File FileName="Assets\Unite\Unite.cs" Line="17" Column="23" />
+      <File FileName="Assets\Map\Spawn.cs" Line="56" Column="1" />
+      <File FileName="Assets\Map\TowerSlot.cs" Line="34" Column="62" />
+      <File FileName="Assets\Map\Game.cs" Line="8" Column="14" />
+      <File FileName="Assets\Tower\Bullet\Bullet.cs" Line="40" Column="41" />
+      <File FileName="Assets\Unite\Robot\AgentRobot.cs" Line="6" Column="2" />
+      <File FileName="Assets\Unite\Robot\Robot.cs" Line="6" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

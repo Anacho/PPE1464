@@ -323,6 +323,7 @@ public class Menu : MonoBehaviour {
 			}
 			else if (GUI.Button (new Rect (c1, h1, lo, l2), "Créer une nouvelle carte!"))
 			{
+				s_carte = "Carte 1";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 			}
@@ -342,6 +343,7 @@ public class Menu : MonoBehaviour {
 				
 				}
 			} else if (GUI.Button (new Rect (c1, h2, lo, l2), "Créer une nouvelle carte!")) {
+				s_carte = "Carte 2";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 
@@ -362,6 +364,7 @@ public class Menu : MonoBehaviour {
 						
 				}
 			} else if (GUI.Button (new Rect (c1, h3, lo, l2), "Créer une nouvelle carte!")) {
+				s_carte = "Carte 3";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 			}
@@ -381,6 +384,7 @@ public class Menu : MonoBehaviour {
 				
 				}
 			} else if (GUI.Button (new Rect (c2, h1, lo, l2), "Créer une nouvelle carte!")) {
+				s_carte = "Carte 4";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 
@@ -400,6 +404,7 @@ public class Menu : MonoBehaviour {
 
 				}
 			} else if (GUI.Button (new Rect (c2, h2, lo, l2), "Créer une nouvelle carte!")) {
+				s_carte = "Carte 5";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 
@@ -420,6 +425,7 @@ public class Menu : MonoBehaviour {
 
 				}
 			} else if (GUI.Button (new Rect (c2, h3, lo, l2), "Créer une nouvelle carte!")) {
+				s_carte = "Carte 6";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 
@@ -441,6 +447,7 @@ public class Menu : MonoBehaviour {
 				}
 
 			} else if (GUI.Button (new Rect (c2, h4, lo, l2), "Créer une nouvelle carte!")) {
+				s_carte = "Carte 7";
 				savingSettings(false);
 				Application.LoadLevel("Creator");					
 
@@ -481,47 +488,59 @@ public class Menu : MonoBehaviour {
 			// Supprime la carte
 				if (s_carte=="Carte 1")
 				{
-					File.Delete("carte 1.txt");
+					File.Delete("Carte 1.txt");
 					p1=false;
 				}
 				if (s_carte=="Carte 2")
 				{
-					File.Delete("carte 2.txt");
+					File.Delete("Carte 2.txt");
 					p2=false;
 				}
 			if (s_carte=="Carte 3")
 				{
-					File.Delete("carte 3.txt");
+					File.Delete("Carte 3.txt");
 					p3=false;
 				}
 			if (s_carte=="Carte 4") 
 				{
-					File.Delete("carte 4.txt");
+					File.Delete("Carte 4.txt");
 					p4=false;
 				}
 			if (s_carte=="Carte 5") 
 				{
-					File.Delete("carte 5.txt");
+					File.Delete("Carte 5.txt");
 					p5=false;
 				}
 			if (s_carte=="Carte 6") 
 				{
-					File.Delete("carte 6.txt");
+					File.Delete("Carte 6.txt");
 					p6=false;
 				}
 			if (s_carte=="Carte 7") 
 				{
-					File.Delete("carte 7.txt");
+					File.Delete("Carte 7.txt");
 					p7=false;
 				}
 
+				menu_cartes = true;
 				
+				menu_principal = false;  
+				menu_paramètres = false;
+				menu_editeur=false;
+				menu_options=false;
 
 			}
 			if (GUI.Button (new Rect (365, h3, lo, l2), "Sélectionner")) { 
 
 			// Enregistre la carte dans le fichier paramètre
+				savingSettings(true);
 
+				menu_cartes = true;
+				
+				menu_principal = false;  
+				menu_paramètres = false;
+				menu_editeur=false;
+				menu_options=false;
 
 
 			}

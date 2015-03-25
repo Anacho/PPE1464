@@ -163,6 +163,11 @@ public class Controller : MonoBehaviour {
 					saving ();
 			}
 
+			if(GUI.Button (new Rect (150, 10, 100, 100), "Quit"))
+			{
+				Application.LoadLevel("menu");
+			}
+
 			GUI.Box (new Rect (380, 10, 50, 25), "Start");
 			GUI.Box (new Rect (380, 310, 50, 25), "End");
 		}

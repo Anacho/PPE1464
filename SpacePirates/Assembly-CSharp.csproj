@@ -51,7 +51,6 @@
      <Compile Include="Assets\Map\Game.cs" />
      <Compile Include="Assets\Map\Spawn.cs" />
      <Compile Include="Assets\Map\TowerSlot.cs" />
-     <Compile Include="Assets\Menu (2).cs" />
      <Compile Include="Assets\Menu.cs" />
      <Compile Include="Assets\Tower\Bullet\Bullet.cs" />
      <Compile Include="Assets\Tower\Tower.cs" />

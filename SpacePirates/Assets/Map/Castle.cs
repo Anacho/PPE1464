@@ -30,7 +30,7 @@ public class Castle : MonoBehaviour {
 		if (unites != null) {
 			// find all unites that are close to the castle
 			for (int i = 0; i < unites.Length; ++i) {
-				float range = Mathf.Max(collider.bounds.size.x, collider.bounds.size.y);
+				float range = Mathf.Max(GetComponent<Collider>().bounds.size.x, GetComponent<Collider>().bounds.size.y);
 				if (Vector3.Distance(transform.position, unites[i].transform.position) <= range) { 
 					if(enemy){
 						// decrease castle health

@@ -78,6 +78,12 @@ public class Menu : MonoBehaviour {
 		{
 			p7 = true;
 		}
+
+		string fileName = "settings.txt";
+		TextReader reader;
+		reader = new  StreamReader(fileName);
+		s_carte = reader.ReadLine ();
+		reader.Close();
 	}
 
 
@@ -193,20 +199,21 @@ public class Menu : MonoBehaviour {
 
 			if (menu_jouer == true) { 
 
-					if (GUI.Button (new Rect (c2, 205, lo, l1), "Partie Rapide")) {  
+				if (GUI.Button (new Rect (c2, 205, lo, l1), "Partie Rapide")) {  
 
-							// Lance le jeu avec les paramètres par défault
-							// fonction pour lancer la scène avec passage de paramètres
+					// Lance le jeu avec les paramètres par défault
+					// fonction pour lancer la scène avec passage de paramètres
+					savingSettings(true, true);
+					Application.LoadLevel("scene_main");
+				}
 
-					}
+				if (GUI.Button (new Rect (c2, 285, lo, l1), "Paramètres")) {  
 
-					if (GUI.Button (new Rect (c2, 285, lo, l1), "Paramètres")) {  
+					// Ouvre le menu Paramètres
 
-							// Ouvre le menu Paramètres
+					menu_paramètres = true;
 
-							menu_paramètres = true;
-
-					}
+				}
 
 			}
 	
@@ -276,7 +283,9 @@ public class Menu : MonoBehaviour {
 			if (GUI.Button (new Rect (c2, 205, lo, l1), "Lancer la partie")) {  
 				
 				// Lance la partie avec les paramètres modifiés
-				
+				savingSettings(true, true);
+				Application.LoadLevel("scene_main");
+
 			}
 
 			if (GUI.Button (new Rect (c2, 285, lo, l1), "Retour")) {  
@@ -324,7 +333,7 @@ public class Menu : MonoBehaviour {
 			else if (GUI.Button (new Rect (c1, h1, lo, l2), "Créer une nouvelle carte!"))
 			{
 				s_carte = "Carte 1";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 			}
 
@@ -344,7 +353,7 @@ public class Menu : MonoBehaviour {
 				}
 			} else if (GUI.Button (new Rect (c1, h2, lo, l2), "Créer une nouvelle carte!")) {
 				s_carte = "Carte 2";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 
 		
@@ -365,7 +374,7 @@ public class Menu : MonoBehaviour {
 				}
 			} else if (GUI.Button (new Rect (c1, h3, lo, l2), "Créer une nouvelle carte!")) {
 				s_carte = "Carte 3";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 			}
 
@@ -385,7 +394,7 @@ public class Menu : MonoBehaviour {
 				}
 			} else if (GUI.Button (new Rect (c2, h1, lo, l2), "Créer une nouvelle carte!")) {
 				s_carte = "Carte 4";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 
 			}
@@ -405,7 +414,7 @@ public class Menu : MonoBehaviour {
 				}
 			} else if (GUI.Button (new Rect (c2, h2, lo, l2), "Créer une nouvelle carte!")) {
 				s_carte = "Carte 5";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 
 			}
@@ -426,7 +435,7 @@ public class Menu : MonoBehaviour {
 				}
 			} else if (GUI.Button (new Rect (c2, h3, lo, l2), "Créer une nouvelle carte!")) {
 				s_carte = "Carte 6";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 
 			}
@@ -448,7 +457,7 @@ public class Menu : MonoBehaviour {
 
 			} else if (GUI.Button (new Rect (c2, h4, lo, l2), "Créer une nouvelle carte!")) {
 				s_carte = "Carte 7";
-				savingSettings(false);
+				savingSettings(false, false);
 				Application.LoadLevel("Creator");					
 
 			}
@@ -475,7 +484,7 @@ public class Menu : MonoBehaviour {
 
 
 				// Ouvre l'éditeur de carte
-				savingSettings(true);
+				savingSettings(true, false);
 				Application.LoadLevel("Creator");					
 
 
@@ -533,7 +542,7 @@ public class Menu : MonoBehaviour {
 			if (GUI.Button (new Rect (365, h3, lo, l2), "Sélectionner")) { 
 
 			// Enregistre la carte dans le fichier paramètre
-				savingSettings(true);
+				savingSettings(true, false);
 
 				menu_cartes = true;
 				
@@ -560,13 +569,14 @@ public class Menu : MonoBehaviour {
 		}
 	}
 
-	void savingSettings(bool load)
+	void savingSettings(bool load, bool gameMode)
 	{
 		TextWriter writer;
 		string fileName = "settings.txt";
 		writer = new StreamWriter (fileName);
 		writer.WriteLine (s_carte);
 		writer.WriteLine (load);
+		writer.WriteLine (gameMode);
 
 		writer.Close (); 
 	}

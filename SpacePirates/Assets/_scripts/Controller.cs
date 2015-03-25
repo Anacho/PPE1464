@@ -38,8 +38,13 @@ public class Controller : MonoBehaviour {
 		MapArray[(MapSizeX-1)/2, MapSizeY-1] = "-1";
 		if (!bMapEditor)
 		{
-			read ();
+			//Opponent
+			read (true);
 			loadingMap(true);
+
+			//Player
+			read (false);
+			loadingMap(false);
 		}
 		else if (!bLoading)
 		{
@@ -55,7 +60,7 @@ public class Controller : MonoBehaviour {
 
 		}
 		else
-			read ();
+			read (false);
 		loadingMap (false);
 
 	}
@@ -79,16 +84,21 @@ public class Controller : MonoBehaviour {
 		writer.Close();     
 	}
 
-	void read ()
+	void read (bool bOpponent)
 	{
 		string fileName = map + ".txt";
+		if(bOpponent)
+			fileName = "fichier.txt";
 		TextReader reader;
 		reader = new  StreamReader(fileName);
 		for (int i = 0; i < MapSizeX; i++)
 		{
 			for (int j = 0; j < MapSizeY; j++)
 			{
-				MapArray[i,j] = reader.ReadLine();
+				if(bOpponent)
+					MapArrayOpponent[i,j] = reader.ReadLine();
+				else
+					MapArray[i,j] = reader.ReadLine();
 			}
 		}
 		reader.Close();
@@ -112,42 +122,82 @@ public class Controller : MonoBehaviour {
 		{
 			for(int j = 0; j < MapSizeY; j++)
 			{
-				switch (MapArray[i,j]) {
-				case "0":
-					if(!bMapEditor)
-						Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
-					else
-						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
-					break;
-				case "1":
-					Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
-					break;
-				case "2":
-					Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-					break;
-				case "3":
-					Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
-					break;
-				case "4":
-					Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
-					break;
-				case "5":
-					Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-					break;
-				case "6":
-					Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
-					break;
-				case "-2":
-					Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-					break;
-				case "-1":
-		            Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-					break;
-				default:
-					Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
-					break;
+				if(!opponent)
+				{
+					switch (MapArray[i,j]) {
+					case "0":
+						if(!bMapEditor)
+							Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+						else
+							Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
+						break;
+					case "1":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
+						break;
+					case "2":
+						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					case "3":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						break;
+					case "4":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
+						break;
+					case "5":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					case "6":
+						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						break;
+					case "-2":
+						Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					case "-1":
+			            Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					default:
+						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
+						break;
+					}
 				}
-				
+				else 
+				{
+					switch (MapArrayOpponent[i,j]) {
+					case "0":
+						if(!bMapEditor)
+							Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+						else
+							Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
+						break;
+					case "1":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
+						break;
+					case "2":
+						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					case "3":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						break;
+					case "4":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
+						break;
+					case "5":
+						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					case "6":
+						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						break;
+					case "-2":
+						Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					case "-1":
+						Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						break;
+					default:
+						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
+						break;
+					}
+				}
 			}
 		}
 	}
@@ -296,6 +346,7 @@ public class Controller : MonoBehaviour {
 	void readSettings()
 	{
 		string sLoading = "";
+		string sGameMode = "";
 		string fileName = "settings.txt";
 		TextReader reader;
 		reader = new  StreamReader(fileName);
@@ -306,6 +357,12 @@ public class Controller : MonoBehaviour {
 			bLoading = true;
 		} else
 			bLoading = false;
+
+		sGameMode = reader.ReadLine ();
+		if (sGameMode == "True") {
+			bMapEditor = false;
+		} else
+			bMapEditor = true;
 
 		reader.Close();
 	}

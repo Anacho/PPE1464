@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 
 public class Menu : MonoBehaviour {
@@ -49,31 +50,31 @@ public class Menu : MonoBehaviour {
 
 
 	void Start() {
-		if (System.IO.File.Exists("p1.txt"))
+		if (System.IO.File.Exists("carte 1.txt"))
 		{
 			p1 = true;
 		}
-		if (System.IO.File.Exists("p2.txt"))
+		if (System.IO.File.Exists("carte 2.txt"))
 		{
 			p2 = true;
 		}
-		if (System.IO.File.Exists("p3.txt"))
+		if (System.IO.File.Exists("carte 3.txt"))
 		{
 			p3 = true;
 		}
-		if (System.IO.File.Exists("p4.txt"))
+		if (System.IO.File.Exists("carte 4.txt"))
 		{
 			p4 = true;
 		}
-		if (System.IO.File.Exists("p5.txt"))
+		if (System.IO.File.Exists("carte 5.txt"))
 		{
 			p5 = true;
 		}
-		if (System.IO.File.Exists("p6.txt"))
+		if (System.IO.File.Exists("carte 6.txt"))
 		{
 			p6 = true;
 		}
-		if (System.IO.File.Exists("p7.txt"))
+		if (System.IO.File.Exists("carte 7.txt"))
 		{
 			p7 = true;
 		}
@@ -295,115 +296,114 @@ public class Menu : MonoBehaviour {
 
 		if (menu_cartes == true) {
 
-						// Ferme les autres menus
+			// Ferme les autres menus
 
+			menu_principal = false;  
+			menu_paramètres = false;
+			menu_editeur = false;
+			menu_options = false;
+
+			GUI.Box (new Rect (220, 70, 490, 305), "Choix de la carte");
+
+
+			if (p1 == true) {
+
+				if (GUI.Button (new Rect (c1, h1, lo, l2), "Carte 1")) {  
+
+					// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
+					s_carte = "Carte 1";
+					// Ouvre le menu d'édition de carte et ferme les autres menus
+					menu_principal = false;  
+					menu_paramètres = false;
+					menu_editeur = true;
+					menu_options = false;
+					menu_cartes = false;
+
+				}
+			}
+			else if (GUI.Button (new Rect (c1, h1, lo, l2), "Créer une nouvelle carte!"))
+			{
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
+			}
+
+			if (p2 == true) {
+			
+				if (GUI.Button (new Rect (c1, h2, lo, l2), "Carte 2")) {  
+
+					// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
+					s_carte = "Carte 2";
+					// Ouvre le menu d'édition de carte et ferme les autres menus
+					menu_principal = false;  
+					menu_paramètres = false;
+					menu_editeur = true;
+					menu_options = false;
+					menu_cartes = false;
+				
+				}
+			} else if (GUI.Button (new Rect (c1, h2, lo, l2), "Créer une nouvelle carte!")) {
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
+
+		
+			}
+
+			if (p3 == true) {
+					if (GUI.Button (new Rect (c1, h3, lo, l2), "Carte 3")) {  
+
+						// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
+						s_carte = "Carte 3";
+						// Ouvre le menu d'édition de carte et ferme les autres menus
 						menu_principal = false;  
 						menu_paramètres = false;
-						menu_editeur = false;
+						menu_editeur = true;
 						menu_options = false;
-
-						GUI.Box (new Rect (220, 70, 490, 305), "Choix de la carte");
-
-
-						if (p1 == true) {
-
-							if (GUI.Button (new Rect (c1, h1, lo, l2), "Carte 1")) {  
-			
-									// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
-									s_carte = "Carte 1";
-									// Ouvre le menu d'édition de carte et ferme les autres menus
-									menu_principal = false;  
-									menu_paramètres = false;
-									menu_editeur = true;
-									menu_options = false;
-									menu_cartes = false;
-								}
-							} else if (GUI.Button (new Rect (c1, h1, lo, l2), "Créer une nouvelle carte!")) {
-				
-									// Ouvre l'éditeur de carte (pas le menu editeur)
-				
-							}
-
-						if (p2 == true) {
+						menu_cartes = false;
 						
-							if (GUI.Button (new Rect (c1, h2, lo, l2), "Carte 2")) {  
-			
-									// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
-									s_carte = "Carte 2";
-									// Ouvre le menu d'édition de carte et ferme les autres menus
-									menu_principal = false;  
-									menu_paramètres = false;
-									menu_editeur = true;
-									menu_options = false;
-									menu_cartes = false;
+				}
+			} else if (GUI.Button (new Rect (c1, h3, lo, l2), "Créer une nouvelle carte!")) {
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
+			}
 
-			
-							}
-						} else if (GUI.Button (new Rect (c1, h2, lo, l2), "Créer une nouvelle carte!")) {
-					
-								// Ouvre l'éditeur de carte (pas le menu editeur)
-					
-						}
+			if (p4 == true) {
 
-						if (p3 == true) {
-								if (GUI.Button (new Rect (c1, h3, lo, l2), "Carte 3")) {  
+				if (GUI.Button (new Rect (c2, h1, lo, l2), "Carte 4")) {  
+			
+					// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
+					s_carte = "Carte 4";
+					// Ouvre le menu d'édition de carte et ferme les autres menus
+					menu_principal = false;  
+					menu_paramètres = false;
+					menu_editeur = true;
+					menu_options = false;
+					menu_cartes = false;
 				
-										// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
-										s_carte = "Carte 3";
-										// Ouvre le menu d'édition de carte et ferme les autres menus
-										menu_principal = false;  
-										menu_paramètres = false;
-										menu_editeur = true;
-										menu_options = false;
-										menu_cartes = false;
+				}
+			} else if (GUI.Button (new Rect (c2, h1, lo, l2), "Créer une nouvelle carte!")) {
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
 
-				
-								}
-						} else if (GUI.Button (new Rect (c1, h3, lo, l2), "Créer une nouvelle carte!")) {
-						
-							Application.LoadLevel("Creator");					
-						}
-			
-						if (p4 == true) {
+			}
 
-								if (GUI.Button (new Rect (c2, h1, lo, l2), "Carte 4")) {  
-							
-										// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
-										s_carte = "Carte 4";
-										// Ouvre le menu d'édition de carte et ferme les autres menus
-										menu_principal = false;  
-										menu_paramètres = false;
-										menu_editeur = true;
-										menu_options = false;
-										menu_cartes = false;
+			if (p5 == true) {
+				if (GUI.Button (new Rect (c2, h2, lo, l2), "Carte 5")) {  
+		
+					// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
+					s_carte = "Carte 5";
+					// Ouvre le menu d'édition de carte et ferme les autres menus
+					menu_principal = false;  
+					menu_paramètres = false;
+					menu_editeur = true;
+					menu_options = false;
+					menu_cartes = false;
 
-							
-								}
-						} else if (GUI.Button (new Rect (c2, h1, lo, l2), "Créer une nouvelle carte!")) {
-					
-								// Ouvre l'éditeur de carte (pas le menu editeur)
-					
-						}
+				}
+			} else if (GUI.Button (new Rect (c2, h2, lo, l2), "Créer une nouvelle carte!")) {
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
 
-						if (p5 == true) {
-								if (GUI.Button (new Rect (c2, h2, lo, l2), "Carte 5")) {  
-							
-										// Change la valeur de s_editeur afin de changer le nom du menu qui va s'ouvrir
-										s_carte = "Carte 5";
-										// Ouvre le menu d'édition de carte et ferme les autres menus
-										menu_principal = false;  
-										menu_paramètres = false;
-										menu_editeur = true;
-										menu_options = false;
-										menu_cartes = false;
-
-							
-								}
-						} else if (GUI.Button (new Rect (c2, h2, lo, l2), "Créer une nouvelle carte!")) {
-					
-								// Ouvre l'éditeur de carte (pas le menu editeur)
-					
-						}
+			}
 
 			if (p6 == true) {
 				
@@ -417,13 +417,12 @@ public class Menu : MonoBehaviour {
 					menu_editeur = true;
 					menu_options = false;
 					menu_cartes = false;
-					
-					
+
 				}
 			} else if (GUI.Button (new Rect (c2, h3, lo, l2), "Créer une nouvelle carte!")) {
-				
-				// Ouvre l'éditeur de carte (pas le menu editeur)
-				
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
+
 			}
 
 			if (p7 == true) {
@@ -438,13 +437,13 @@ public class Menu : MonoBehaviour {
 					menu_editeur = true;
 					menu_options = false;
 					menu_cartes = false;
-					
-					
+
 				}
+
 			} else if (GUI.Button (new Rect (c2, h4, lo, l2), "Créer une nouvelle carte!")) {
-				
-				// Ouvre l'éditeur de carte (pas le menu editeur)
-				
+				savingSettings(false);
+				Application.LoadLevel("Creator");					
+
 			}
 					
 			if (GUI.Button (new Rect (c1, h4, lo, l2), "Retour")) {  
@@ -455,7 +454,7 @@ public class Menu : MonoBehaviour {
 		
 				}
 
-				}
+		}
 
 	// MENU EDITEUR DE CARTE
 
@@ -463,52 +462,93 @@ public class Menu : MonoBehaviour {
 
 		if (menu_editeur == true) {
 
-				GUI.Box (new Rect (220, 70, 490, 305), s_carte);
-		
-				if (GUI.Button (new Rect (365, h1, lo, l2), "Editer")) { 
+			GUI.Box (new Rect (220, 70, 490, 305), s_carte);
+	
+			if (GUI.Button (new Rect (365, h1, lo, l2), "Editer")) { 
 
 
 				// Ouvre l'éditeur de carte
+				savingSettings(true);
+				Application.LoadLevel("Creator");					
 
 
 
+			}
+
+			if (GUI.Button (new Rect (365, h2, lo, l2), "Supprimer")) { 
+
+				Debug.Log(s_carte);
+			// Supprime la carte
+				if (s_carte=="Carte 1")
+				{
+					File.Delete("carte 1.txt");
+					p1=false;
+				}
+				if (s_carte=="Carte 2")
+				{
+					File.Delete("carte 2.txt");
+					p2=false;
+				}
+			if (s_carte=="Carte 3")
+				{
+					File.Delete("carte 3.txt");
+					p3=false;
+				}
+			if (s_carte=="Carte 4") 
+				{
+					File.Delete("carte 4.txt");
+					p4=false;
+				}
+			if (s_carte=="Carte 5") 
+				{
+					File.Delete("carte 5.txt");
+					p5=false;
+				}
+			if (s_carte=="Carte 6") 
+				{
+					File.Delete("carte 6.txt");
+					p6=false;
+				}
+			if (s_carte=="Carte 7") 
+				{
+					File.Delete("carte 7.txt");
+					p7=false;
 				}
 
-				if (GUI.Button (new Rect (365, h2, lo, l2), "Supprimer")) { 
+				
 
-				// Supprime la carte
-				if (s_carte=="carte 1") { p1=false; }
-				if (s_carte=="carte 2") { p2=false; }
-				if (s_carte=="carte 3") { p3=false; }
-				if (s_carte=="carte 4") { p4=false; }
-				if (s_carte=="carte 5") { p5=false; }
-				if (s_carte=="carte 6") { p6=false; }
-				if (s_carte=="carte 7") { p7=false; }
+			}
+			if (GUI.Button (new Rect (365, h3, lo, l2), "Sélectionner")) { 
 
-					
-
-				}
-				if (GUI.Button (new Rect (365, h3, lo, l2), "Sélectionner")) { 
-
-				// Enregistre la carte dans le fichier paramètre
+			// Enregistre la carte dans le fichier paramètre
 
 
 
-				}
-				if (GUI.Button (new Rect (365, h4, lo, l2), "Retour")) { 
+			}
+			if (GUI.Button (new Rect (365, h4, lo, l2), "Retour")) { 
 
-				// retourne au menu des cartes
+			// retourne au menu des cartes
 
-				menu_cartes = true;
+			menu_cartes = true;
 
-				menu_principal = false;  
-				menu_paramètres = false;
-				menu_editeur=false;
-				menu_options=false;
+			menu_principal = false;  
+			menu_paramètres = false;
+			menu_editeur=false;
+			menu_options=false;
 
 
-				}
+			}
 		}
+	}
 
-}
+	void savingSettings(bool load)
+	{
+		TextWriter writer;
+		string fileName = "settings.txt";
+		writer = new StreamWriter (fileName);
+		writer.WriteLine (s_carte);
+		writer.WriteLine (load);
+
+		writer.Close (); 
+	}
 }

@@ -7,8 +7,9 @@ public class Controller : MonoBehaviour {
 	public static int MapSizeY = 11;
 	public static string[,] MapArray = new string[MapSizeX,MapSizeY];
 	public static string[,] MapArrayOpponent = new string[MapSizeX,MapSizeY];
-	public static bool bLoading = true;
-	public static bool bMapEditor = false;
+	public static bool bLoading = false;
+	public static bool bMapEditor = true;
+	public static string map = "";
 	public GameObject AreaSpot;
 	public GameObject RoadCurve;
 	public GameObject RoadStraight;
@@ -31,6 +32,8 @@ public class Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+
+		readSettings ();
 		MapArray[(MapSizeX-1)/2, 0] = "-2";
 		MapArray[(MapSizeX-1)/2, MapSizeY-1] = "-1";
 		if (!bMapEditor)
@@ -60,7 +63,7 @@ public class Controller : MonoBehaviour {
 	void saving()
 	{
 		TextWriter writer;
-		string fileName = "fichier.txt";
+		string fileName = map + ".txt";
 		writer = new StreamWriter(fileName);
 		int count = 0;
 		string[] save = new string[MapSizeX*MapSizeY];
@@ -78,7 +81,7 @@ public class Controller : MonoBehaviour {
 
 	void read ()
 	{
-		string fileName = "fichier.txt";
+		string fileName = map + ".txt";
 		TextReader reader;
 		reader = new  StreamReader(fileName);
 		for (int i = 0; i < MapSizeX; i++)
@@ -282,6 +285,24 @@ public class Controller : MonoBehaviour {
 		}
 		correct = true;
 		return correct;
+	}
+
+
+	void readSettings()
+	{
+		string sLoading = "";
+		string fileName = "settings.txt";
+		TextReader reader;
+		reader = new  StreamReader(fileName);
+
+		map = reader.ReadLine ();
+		sLoading = reader.ReadLine ();
+		if (sLoading == "True") {
+			bLoading = true;
+		} else
+			bLoading = false;
+
+		reader.Close();
 	}
 
 }

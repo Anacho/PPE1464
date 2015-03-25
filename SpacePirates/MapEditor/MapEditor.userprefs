@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Controller.cs">
+    <Files>
+      <File FileName="Assets\_scripts\AreaSlot.cs" Line="137" Column="14" />
+      <File FileName="Assets\_scripts\Controller.cs" Line="11" Column="40" />
+      <File FileName="Assets\_scripts\RoadManagement.cs" Line="8" Column="12" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

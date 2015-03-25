@@ -1,0 +1,10 @@
+void order (x)
+{
+
+	delete(x)
+	for(x,x<6,x++)
+	{
+		carte(x)=carte(x+1);
+	}
+	delete(7);
+}

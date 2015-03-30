@@ -62,6 +62,7 @@
      <Compile Include="Assets\Unite\Unite.cs" />
      <Compile Include="Assets\_scripts\AreaSlot.cs" />
      <Compile Include="Assets\_scripts\Controller.cs" />
+     <Compile Include="Assets\_scripts\Movement.cs" />
      <Compile Include="Assets\_scripts\PlayerController.cs" />
      <Compile Include="Assets\_scripts\RoadManagement.cs" />
  <Reference Include="UnityEngine.UI">

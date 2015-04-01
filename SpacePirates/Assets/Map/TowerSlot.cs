@@ -12,7 +12,7 @@ public class TowerSlot : MonoBehaviour {
 	public Tower towerPrefab = null;
 	
 	void OnGUI() {    
-		if (gui) {
+		if (gui && !enemy) {
 			// get 3d position on screen        
 			Vector3 v = Camera.main.WorldToScreenPoint(transform.position);
 			

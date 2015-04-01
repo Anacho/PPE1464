@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 public class Controller : MonoBehaviour {
@@ -7,6 +8,8 @@ public class Controller : MonoBehaviour {
 	public static int MapSizeY = 11;
 	public static string[,] MapArray = new string[MapSizeX,MapSizeY];
 	public static string[,] MapArrayOpponent = new string[MapSizeX,MapSizeY];
+	public static List<Coord> ArrayCoord = new List<Coord>();
+	public static List<Coord> ArrayCoordOpponent = new List<Coord>();
 	public static bool bLoading = false;
 	public static bool bMapEditor = true;
 	public static string map = "";
@@ -16,6 +19,12 @@ public class Controller : MonoBehaviour {
 	public GameObject NoRoad;
 	public GameObject RoadStart;
 	public GameObject RoadEnd;
+
+	public struct Coord
+	{
+		public int x;
+		public int y;
+	}
 
 	/* int = 0 ; NULL
 	 * int = 1 ; NE
@@ -41,10 +50,12 @@ public class Controller : MonoBehaviour {
 			//Opponent
 			read (true);
 			loadingMap(true);
+			preparePath(true);
 
 			//Player
 			read (false);
 			loadingMap(false);
+			preparePath(false);
 		}
 		else if (!bLoading)
 		{
@@ -241,6 +252,166 @@ public class Controller : MonoBehaviour {
 
 		}
 	}
+
+	public void preparePath(bool opponent)
+	{
+		char Direction = 'S';
+		bool end = false;
+		int x = (MapSizeX-1)/2;
+		int y = MapSizeY-1;
+
+		while (end == false)
+		{
+			if(!opponent)
+			{
+				switch (MapArray [x, y]) {
+				case "1": //NE
+					if (Direction == 'S') {
+						Direction = 'E';
+						x++;
+					} else if (Direction == 'W') {
+						Direction = 'N';
+						y++;
+					}
+					break;
+				case "2": //NS
+					if (Direction == 'S') {
+						Direction = 'S';
+						y--;
+					} else if (Direction == 'N') {
+						Direction = 'N';
+						y++;
+					}
+					break;
+				case "3": // NW
+					if (Direction == 'S') {
+						Direction = 'W';
+						x--;
+					} else if (Direction == 'E') {
+						Direction = 'N';
+						y++;
+					}
+					break;
+				case "4": //SE
+					if (Direction == 'N') {
+						Direction = 'E';
+						x++;
+					} else if (Direction == 'W') {
+						Direction = 'S';
+						y--;
+					}
+					break;
+				case "5": //SW
+					if (Direction == 'N') {
+						Direction = 'W';
+						x--;
+					} else if (Direction == 'E') {
+						Direction = 'S';
+						y--;
+					}
+					break;
+				case "6": //WE
+					if (Direction == 'E') {
+						Direction = 'E';
+						x++;
+					} else if (Direction == 'W') {
+						Direction = 'W';
+						x--;
+					}
+					break;
+				case "-2": //END
+					end = true;
+					break;
+				case "-1": //START
+					Direction = 'S';
+					y--;
+					break;
+				default:
+					break;
+				}
+				Debug.Log (x + " " + y);
+				Coord movCoord;
+				movCoord.x = x;
+				movCoord.y = y;
+				
+				ArrayCoord.Add(movCoord);
+			}
+			else {
+				switch (MapArrayOpponent [x, y]) {
+				case "1": //NE
+					if (Direction == 'S') {
+						Direction = 'E';
+						x++;
+					} else if (Direction == 'W') {
+						Direction = 'N';
+						y++;
+					}
+					break;
+				case "2": //NS
+					if (Direction == 'S') {
+						Direction = 'S';
+						y--;
+					} else if (Direction == 'N') {
+						Direction = 'N';
+						y++;
+					}
+					break;
+				case "3": // NW
+					if (Direction == 'S') {
+						Direction = 'W';
+						x--;
+					} else if (Direction == 'E') {
+						Direction = 'N';
+						y++;
+					}
+					break;
+				case "4": //SE
+					if (Direction == 'N') {
+						Direction = 'E';
+						x++;
+					} else if (Direction == 'W') {
+						Direction = 'S';
+						y--;
+					}
+					break;
+				case "5": //SW
+					if (Direction == 'N') {
+						Direction = 'W';
+						x--;
+					} else if (Direction == 'E') {
+						Direction = 'S';
+						y--;
+					}
+					break;
+				case "6": //WE
+					if (Direction == 'E') {
+						Direction = 'E';
+						x++;
+					} else if (Direction == 'W') {
+						Direction = 'W';
+						x--;
+					}
+					break;
+				case "-2": //END
+					end = true;
+					break;
+				case "-1": //START
+					Direction = 'S';
+					y--;
+					break;
+				default:
+					break;
+				}
+				Debug.Log (x + " " + y);
+				Coord movCoord;
+				movCoord.x = x;
+				movCoord.y = y;
+				
+				ArrayCoordOpponent.Add(movCoord);
+			}
+		}
+	}
+
 
 	bool getPath()
 	{

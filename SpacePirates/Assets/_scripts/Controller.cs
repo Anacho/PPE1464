@@ -10,6 +10,8 @@ public class Controller : MonoBehaviour {
 	public static string[,] MapArrayOpponent = new string[MapSizeX,MapSizeY];
 	public static List<Coord> ArrayCoord = new List<Coord>();
 	public static List<Coord> ArrayCoordOpponent = new List<Coord>();
+	public static GameObject[,] Map = new GameObject[MapSizeX, MapSizeY];
+	public static GameObject[,] MapOpponent = new GameObject[MapSizeX, MapSizeY];
 	public static bool bLoading = false;
 	public static bool bMapEditor = true;
 	public static string map = "";
@@ -138,36 +140,36 @@ public class Controller : MonoBehaviour {
 					switch (MapArray[i,j]) {
 					case "0":
 						if(!bMapEditor)
-							Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+							Map[i, j] = (GameObject) Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
 						else
-							Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
+							Map[i, j] = (GameObject) Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
 						break;
 					case "1":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
+						Map[i, j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
 						break;
 					case "2":
-						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Map[i, j] = (GameObject) Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					case "3":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						Map[i, j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
 						break;
 					case "4":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
+						Map[i, j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
 						break;
 					case "5":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Map[i, j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					case "6":
-						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						Map[i, j] = (GameObject) Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
 						break;
 					case "-2":
-						Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Map[i, j] = (GameObject) Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					case "-1":
-						Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Map[i, j] = (GameObject) Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					default:
-						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
+						Map[i, j] = (GameObject) Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
 						break;
 					}
 				}
@@ -177,45 +179,45 @@ public class Controller : MonoBehaviour {
 					case "0":
 						if(!bMapEditor) {
 							//Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
-							GameObject twS = (GameObject) Instantiate(NoRoad.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
-							TowerSlot tws = twS.GetComponent<TowerSlot> ();
+							MapOpponent[i,j] = (GameObject) Instantiate(NoRoad.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+							TowerSlot tws = MapOpponent[i,j].GetComponent<TowerSlot> ();
 							tws.enemy = true;
 						}
 						else
-							Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
+							MapOpponent[i,j] = (GameObject) Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
 						break;
 					case "1":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,180,0));
 						break;
 					case "2":
-						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					case "3":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
 						break;
 					case "4":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,270,0));
 						break;
 					case "5":
-						Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadCurve, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					case "6":
-						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
 						break;
 					case "-2":
 						//Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-						GameObject castleGO = (GameObject) Instantiate(RoadEnd.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-						Castle castle = castleGO.GetComponent<Castle> ();
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadEnd.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Castle castle = MapOpponent[i,j].GetComponent<Castle> ();
 						castle.enemy = true;
 						break;
 					case "-1":
 						//Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-						GameObject spawnGO = (GameObject) Instantiate(RoadStart.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
-						Spawn spawn = spawnGO.GetComponent<Spawn> ();
+						MapOpponent[i,j] = (GameObject) Instantiate(RoadStart.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Spawn spawn = MapOpponent[i,j].GetComponent<Spawn> ();
 						spawn.enemy = true;
 						break;
 					default:
-						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
+						MapOpponent[i,j] = (GameObject) Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
 						break;
 					}
 				}

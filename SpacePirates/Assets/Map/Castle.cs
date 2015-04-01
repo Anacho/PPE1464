@@ -6,8 +6,8 @@ public class Castle : MonoBehaviour {
 	public static int gold = 3; // start gold
 	public static int enemyGold = 3;
 	
-	public static int health = 3;
-	public static int enemyHealth = 3;
+	public static int health = 30;
+	public static int enemyHealth = 30;
 
 	public bool enemy = false;
 

@@ -55,8 +55,11 @@ public class Spawn : MonoBehaviour {
 						count--;
 						Unite unite = (Unite)Instantiate (robot, transform.position, Quaternion.identity);
 						// get access to the navmesh agent component
-						//NavMeshAgent n = unite.GetComponentInParent<NavMeshAgent> ();
-						//n.destination = destination.position;
+						NavMeshAgent n = unite.GetComponentInParent<NavMeshAgent> ();
+						if(enemy)
+							n.destination = Controller.MapOpponent [Controller.ArrayCoordOpponent [0].x, Controller.ArrayCoordOpponent [0].y].transform.position;
+						else
+							n.destination = Controller.Map [Controller.ArrayCoord [0].x, Controller.ArrayCoord [0].y].transform.position;
 						if(!enemy){
 							unite.enemy=true;
 						}

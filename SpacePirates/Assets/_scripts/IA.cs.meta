@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: e4ad34e215aead645919d00cb8ed1c37
-timeCreated: 1427892113
+timeCreated: 1427899563
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
+  defaultReferences:
+  - towerPrefab: {fileID: 11400000, guid: f37e3aefd5d827c47a5f72c18ee1e653, type: 2}
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

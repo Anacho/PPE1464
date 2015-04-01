@@ -50,10 +50,10 @@ public class Spawn : MonoBehaviour {
 			timeLeft -= Time.deltaTime;
 			if (timeLeft <= 0.0f) {
 					// spawn
-
+				Vector3 SpawnPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
 					if (count > 0)  {
 						count--;
-						Unite unite = (Unite)Instantiate (robot, transform.position, Quaternion.identity);
+						Unite unite = (Unite)Instantiate (robot, SpawnPosition, Quaternion.identity);
 						// get access to the navmesh agent component
 						NavMeshAgent n = unite.GetComponentInParent<NavMeshAgent> ();
 						if(enemy)

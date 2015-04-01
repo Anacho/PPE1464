@@ -14,6 +14,8 @@ public class Controller : MonoBehaviour {
 	public static GameObject[,] MapOpponent = new GameObject[MapSizeX, MapSizeY];
 	public static bool bLoading = false;
 	public static bool bMapEditor = true;
+	public static int stepCount = 0;
+	public static int stepCountOpponent = 0;
 	public static string map = "";
 	public GameObject AreaSpot;
 	public GameObject RoadCurve;
@@ -335,7 +337,7 @@ public class Controller : MonoBehaviour {
 				Coord movCoord;
 				movCoord.x = x;
 				movCoord.y = y;
-				
+				stepCount++;
 				ArrayCoord.Add(movCoord);
 			}
 			else {
@@ -408,7 +410,7 @@ public class Controller : MonoBehaviour {
 				Coord movCoord;
 				movCoord.x = x;
 				movCoord.y = y;
-				
+				stepCountOpponent++;
 				ArrayCoordOpponent.Add(movCoord);
 			}
 		}

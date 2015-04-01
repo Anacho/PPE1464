@@ -9,7 +9,7 @@ public class RoadManagement : MonoBehaviour {
 
 	void OnGUI() {    
 
-		if (gui) {
+		if (gui && Controller.bMapEditor) {
 			// get 3d position on screen        
 			Vector3 v = Camera.main.WorldToScreenPoint(transform.position);
 			

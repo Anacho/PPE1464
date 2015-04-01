@@ -153,7 +153,7 @@ public class Controller : MonoBehaviour {
 						Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					case "-1":
-			            Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
 						break;
 					default:
 						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);
@@ -164,8 +164,12 @@ public class Controller : MonoBehaviour {
 				{
 					switch (MapArrayOpponent[i,j]) {
 					case "0":
-						if(!bMapEditor)
-							Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+						if(!bMapEditor) {
+							//Instantiate(NoRoad, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+							GameObject twS = (GameObject) Instantiate(NoRoad.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(180,0,0));
+							TowerSlot tws = twS.GetComponent<TowerSlot> ();
+							tws.enemy = true;
+						}
 						else
 							Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler(0,0,0));
 						break;
@@ -188,10 +192,16 @@ public class Controller : MonoBehaviour {
 						Instantiate(RoadStraight, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,90,0));
 						break;
 					case "-2":
-						Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						//Instantiate(RoadEnd, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						GameObject castleGO = (GameObject) Instantiate(RoadEnd.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Castle castle = castleGO.GetComponent<Castle> ();
+						castle.enemy = true;
 						break;
 					case "-1":
-						Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						//Instantiate(RoadStart, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						GameObject spawnGO = (GameObject) Instantiate(RoadStart.gameObject, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.Euler (0,0,0));
+						Spawn spawn = spawnGO.GetComponent<Spawn> ();
+						spawn.enemy = true;
 						break;
 					default:
 						Instantiate(AreaSpot, new Vector3(BaseX + 5*i, 0, BaseY + 5*j), Quaternion.identity);

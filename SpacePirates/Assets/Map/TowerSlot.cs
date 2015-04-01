@@ -43,7 +43,7 @@ public class TowerSlot : MonoBehaviour {
 					Tower tower = (Tower)Instantiate(towerPrefab, pos, Quaternion.Euler(rot.x, rot.y , rot.z));
 					tower.enemy=true;
 					// disable gameobject
-					gameObject.SetActive(false);
+					//gameObject.SetActive(false);
 				}
 				else if(Castle.gold >= towerPrefab.buildPrice && !enemy) {
 					Castle.gold -= towerPrefab.buildPrice;
@@ -53,7 +53,7 @@ public class TowerSlot : MonoBehaviour {
 					Instantiate(towerPrefab, pos, Quaternion.Euler(rot.x, rot.y , rot.z));
 					
 					// disable gameobject
-					gameObject.SetActive(false);
+					//gameObject.SetActive(false);
 				}
 			}
 		}

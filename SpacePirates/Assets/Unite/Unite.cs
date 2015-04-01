@@ -4,13 +4,15 @@ using System.Collections;
 public class Unite : MonoBehaviour {
 
 	public bool enemy = false;
-
 	public int health;
 	// Update is called once per frame
 	void Update () {
 		if (Game.done) {
 			NavMeshAgent n = GetComponent<NavMeshAgent> ();
 			n.destination = transform.position;
+		}
+		else if(true) {
+
 		}
 	}
 	

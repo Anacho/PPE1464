@@ -35,7 +35,7 @@ public class Spawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!Game.done) {
+		if (!Game.done && !Controller.bMapEditor) {
 			/*if (count == 0) {
 				
 				Unite[] unites = (Unite[])FindObjectsOfType(typeof(Unite));

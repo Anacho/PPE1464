@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Windows;
+#if NETFX_CORE
+using WinRTLegacy.IO;
+#else
 using System.IO;
+#endif
 
 
 public class Menu : MonoBehaviour {
@@ -50,37 +55,37 @@ public class Menu : MonoBehaviour {
 
 
 	void Start() {
-		if (System.IO.File.Exists("carte 1.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 1.txt"))
 		{
 			p1 = true;
 		}
-		if (System.IO.File.Exists("carte 2.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 2.txt"))
 		{
 			p2 = true;
 		}
-		if (System.IO.File.Exists("carte 3.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 3.txt"))
 		{
 			p3 = true;
 		}
-		if (System.IO.File.Exists("carte 4.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 4.txt"))
 		{
 			p4 = true;
 		}
-		if (System.IO.File.Exists("carte 5.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 5.txt"))
 		{
 			p5 = true;
 		}
-		if (System.IO.File.Exists("carte 6.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 6.txt"))
 		{
 			p6 = true;
 		}
-		if (System.IO.File.Exists("carte 7.txt"))
+		if (UnityEngine.Windows.File.Exists("carte 7.txt"))
 		{
 			p7 = true;
 		}
 
 		string fileName = "settings.txt";
-		TextReader reader;
+		StreamReader reader;
 		reader = new  StreamReader(fileName);
 		s_carte = reader.ReadLine ();
 		reader.Close();
@@ -497,37 +502,37 @@ public class Menu : MonoBehaviour {
 			// Supprime la carte
 				if (s_carte=="Carte 1")
 				{
-					File.Delete("Carte 1.txt");
+					UnityEngine.Windows.File.Delete("Carte 1.txt");
 					p1=false;
 				}
 				if (s_carte=="Carte 2")
 				{
-					File.Delete("Carte 2.txt");
+					UnityEngine.Windows.File.Delete("Carte 2.txt");
 					p2=false;
 				}
 			if (s_carte=="Carte 3")
 				{
-					File.Delete("Carte 3.txt");
+					UnityEngine.Windows.File.Delete("Carte 3.txt");
 					p3=false;
 				}
 			if (s_carte=="Carte 4") 
 				{
-					File.Delete("Carte 4.txt");
+					UnityEngine.Windows.File.Delete("Carte 4.txt");
 					p4=false;
 				}
 			if (s_carte=="Carte 5") 
 				{
-					File.Delete("Carte 5.txt");
+					UnityEngine.Windows.File.Delete("Carte 5.txt");
 					p5=false;
 				}
 			if (s_carte=="Carte 6") 
 				{
-					File.Delete("Carte 6.txt");
+					UnityEngine.Windows.File.Delete("Carte 6.txt");
 					p6=false;
 				}
 			if (s_carte=="Carte 7") 
 				{
-					File.Delete("Carte 7.txt");
+					UnityEngine.Windows.File.Delete("Carte 7.txt");
 					p7=false;
 				}
 
@@ -571,7 +576,7 @@ public class Menu : MonoBehaviour {
 
 	void savingSettings(bool load, bool gameMode)
 	{
-		TextWriter writer;
+		StreamWriter writer;
 		string fileName = "settings.txt";
 		writer = new StreamWriter (fileName);
 		writer.WriteLine (s_carte);

@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+#if NETFX_CORE
+using WinRTLegacy.IO;
+#else
 using System.IO;
+#endif
 
 public class Controller : MonoBehaviour {
 	public static int MapSizeX = 11;
@@ -82,7 +86,7 @@ public class Controller : MonoBehaviour {
 	 
 	void saving()
 	{
-		TextWriter writer;
+		StreamWriter writer;
 		string fileName = map + ".txt";
 		writer = new StreamWriter(fileName);
 		int count = 0;
@@ -104,7 +108,7 @@ public class Controller : MonoBehaviour {
 		string fileName = map + ".txt";
 		if(bOpponent)
 			fileName = "fichier.txt";
-		TextReader reader;
+		StreamReader reader;
 		reader = new  StreamReader(fileName);
 		for (int i = 0; i < MapSizeX; i++)
 		{
@@ -533,7 +537,7 @@ public class Controller : MonoBehaviour {
 		string sLoading = "";
 		string sGameMode = "";
 		string fileName = "settings.txt";
-		TextReader reader;
+		StreamReader reader;
 		reader = new  StreamReader(fileName);
 
 		map = reader.ReadLine ();

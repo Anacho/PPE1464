@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<UnityInstallationDir>D:\Unity\Editor</UnityInstallationDir>
+		<UnityWSAPlayerDir>D:\Unity\Editor\Data\PlaybackEngines\metrosupport</UnityWSAPlayerDir>
+		<UnityProjectDir>C:\Users\Quentin\Desktop\PPE1464\SpacePirates</UnityProjectDir>
+	</PropertyGroup>
+</Project>

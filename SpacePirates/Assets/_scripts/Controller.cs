@@ -79,8 +79,10 @@ public class Controller : MonoBehaviour {
 
 		}
 		else
+		{
 			read (false);
-		loadingMap (false);
+			loadingMap (false);
+		}
 
 	}
 	 

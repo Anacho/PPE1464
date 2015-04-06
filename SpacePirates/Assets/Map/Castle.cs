@@ -33,15 +33,11 @@ public class Castle : MonoBehaviour {
 				float range = Mathf.Max(GetComponent<Collider>().bounds.size.x, GetComponent<Collider>().bounds.size.y);
 				//if (Vector3.Distance(transform.position, unites[i].transform.position) <= range) { 
 				if(unites[i].transform.position.z <= (-22.5F)) {
-					if(enemy){
-						// decrease castle health
-						enemyHealth = enemyHealth - 1;
-					}
-					else{
+					if(!enemy){
 						// decrease castle health
 						health = health - 1;
 					}
-					
+
 					// destroy unite
 					Destroy(unites[i].gameObject);
 				} 

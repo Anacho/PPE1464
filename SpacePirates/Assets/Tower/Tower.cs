@@ -39,7 +39,7 @@ public class Tower : MonoBehaviour {
 			}
 			if (unites != null) {
 				if (unites.Length > 0) {
-					for (int i = 1; i < unites.Length; ++i) {
+					for (int i = 0; i < unites.Length; ++i) {
 						if(!unites[i].enemy){
 							if(closest==null){
 								closest=unites[i];
@@ -64,7 +64,7 @@ public class Tower : MonoBehaviour {
 			}
 			if (unites != null) {
 				if (unites.Length > 0) {
-					for (int i = 1; i < unites.Length; ++i) {
+					for (int i = 0; i < unites.Length; ++i) {
 						if(unites[i].enemy){
 							if(closest==null){
 								closest=unites[i];

@@ -5,7 +5,7 @@ public class Spawn : MonoBehaviour {
 
 
 	public bool enemy = false;
-	static int nbRobot=0;
+	int nbRobot=0;
 	int prixRobot=1;
 	int vague = 0;
 	bool newVague=true;
@@ -58,7 +58,7 @@ public class Spawn : MonoBehaviour {
 
 	// spawn a new teddy each ... seconds
 	public float interval = 3.0f;
-	public float intervalVague=10.0f;
+	public float intervalVague=40.0f;
 	float timeLeftVague = 0.0f;
 	float timeLeft = 0.0f;
 	public int count = 0;
@@ -78,38 +78,36 @@ public class Spawn : MonoBehaviour {
 			// time to spawn the next one?
 			timeLeft -= Time.deltaTime;
 			if (timeLeft <= 0.0f) {
-					// spawn
-				Vector3 SpawnPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-					if (count > 0)  {
-						count--;
-						Unite unite = (Unite)Instantiate (robot, SpawnPosition, Quaternion.identity);
-						// get access to the navmesh agent component
-						NavMeshAgent n = unite.GetComponentInParent<NavMeshAgent> ();
-						if(enemy)
-							n.destination = Controller.MapOpponent [Controller.ArrayCoordOpponent [0].x, Controller.ArrayCoordOpponent [0].y].transform.position;
-						else
-							n.destination = Controller.Map [Controller.ArrayCoord [0].x, Controller.ArrayCoord [0].y].transform.position;
-						if(!enemy){
-							unite.enemy=true;
-						}
-						
+				// spawn
+				Vector3 SpawnPosition = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
+				if (count > 0) {
+					count--;
+					Unite unite = (Unite)Instantiate (robot, SpawnPosition, Quaternion.identity);
+					// get access to the navmesh agent component
+					NavMeshAgent n = unite.GetComponentInParent<NavMeshAgent> ();
+					if (enemy)
+						n.destination = Controller.MapOpponent [Controller.ArrayCoordOpponent [0].x, Controller.ArrayCoordOpponent [0].y].transform.position;
+					else
+						n.destination = Controller.Map [Controller.ArrayCoord [0].x, Controller.ArrayCoord [0].y].transform.position;
+					if (!enemy) {
+						unite.enemy = true;
 					}
+						
+				}
 					
 
-					// reset time
-					timeLeft = interval;
+				// reset time
+				timeLeft = interval;
 
 			}
 
 
-			if(count==0){
-				timeLeftVague-=Time.deltaTime;
-				if(timeLeftVague <= 0.0f){
-					count=5+nbRobot;
-					nbRobot=0;
-					vague++;
-					timeLeftVague=intervalVague;
-				}
+			timeLeftVague -= Time.deltaTime;
+			if (timeLeftVague <= 0.0f) {
+				count = 5 +nbRobot;
+				nbRobot = 0;
+				vague++;
+				timeLeftVague = intervalVague;
 			}
 		}
 	}

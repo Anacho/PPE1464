@@ -1,8 +1,14 @@
 fileFormatVersion: 2
 guid: e17099140bbe3c84b9b5366e4394aa42
+timeCreated: 1428327793
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - robot: {fileID: 11400000, guid: eadfbcfc4c621df41b2b606e26391946, type: 2}
+  - destination: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

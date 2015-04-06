@@ -1,10 +1,6 @@
 Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-6-13064
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-6-10124
 Cmd: getPlatforms
-Cmd: compileSnippet
-  api=8 type=0 insize=3569 outsize=3876 kw=DIRECTIONAL ok=1
-Cmd: compileSnippet
-  api=8 type=1 insize=3569 outsize=3535 kw=SPOT ok=1
 Unhandled exception: Readfile from pipe failed. GLE=Le canal de communication a été fermé.
 
 

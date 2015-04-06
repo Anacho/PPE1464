@@ -122,7 +122,7 @@ public class Tower : MonoBehaviour {
 	public int upgradePrice = 5;
 	void OnGUI() {
 
-		if (gui) {
+		if (gui&&!enemy) {
 
 			// get 3d position on screen        
 			Vector3 v = Camera.main.WorldToScreenPoint(transform.position);

@@ -64,7 +64,7 @@ public class Tower : MonoBehaviour {
 			}
 			if (unites != null) {
 				if (unites.Length > 0) {
-					for (int i = 1; i < unites.Length; ++i) {
+					for (int i = 0; i < unites.Length; ++i) {
 						if(unites[i].enemy){
 							if(closest==null){
 								closest=unites[i];
@@ -122,7 +122,7 @@ public class Tower : MonoBehaviour {
 	public int upgradePrice = 5;
 	void OnGUI() {
 
-		if (gui) {
+		if (gui&&!enemy) {
 
 			// get 3d position on screen        
 			Vector3 v = Camera.main.WorldToScreenPoint(transform.position);

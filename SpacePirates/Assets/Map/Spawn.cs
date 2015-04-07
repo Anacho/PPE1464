@@ -13,8 +13,9 @@ public class Spawn : MonoBehaviour {
 	
 	protected bool gui = false;
 	bool guiButton=true;
+
 	void OnGUI() {
-		if(!enemy){
+		if(!enemy && !Controller.bMapEditor){
 			GUI.Label(new Rect(200,0,100,100),"Vague "+vague);
 			GUI.skin.button.fontSize = (int)(0.08*Screen.height);
 			if(guiButton){

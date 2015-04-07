@@ -12,15 +12,17 @@ public class Castle : MonoBehaviour {
 	public bool enemy = false;
 
 	void OnGUI() {
-		if(enemy){
-			GUI.Label(new Rect(Screen.width-400, 0, 400, 200), "Gold: " + enemyGold);
-			GUI.Label(new Rect(Screen.width-400, 40, 400, 200), "Castle Health: " + enemyHealth);
+		if(!Controller.bMapEditor)
+		{
+			if(enemy){
+				GUI.Label(new Rect(Screen.width-400, 0, 400, 200), "Gold: " + enemyGold);
+				GUI.Label(new Rect(Screen.width-400, 40, 400, 200), "Castle Health: " + enemyHealth);
+			}
+			else{
+				GUI.Label(new Rect(0, 0, 400, 200), "Gold: " + gold);
+				GUI.Label(new Rect(0, 40, 400, 200), "Castle Health: " + health);
+			}
 		}
-		else{
-			GUI.Label(new Rect(0, 0, 400, 200), "Gold: " + gold);
-			GUI.Label(new Rect(0, 40, 400, 200), "Castle Health: " + health);
-		}
-
 	
 
 	}

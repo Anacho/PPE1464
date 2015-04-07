@@ -65,7 +65,11 @@ public class Controller : MonoBehaviour {
 			loadingMap(false);
 			preparePath(false);
 		}
-		else if (!bLoading)
+		else
+		{
+			loadingMap(false);
+		}
+		if (!bLoading)
 		{
 			for (int i = 0; i<MapSizeX; i++)
 			{

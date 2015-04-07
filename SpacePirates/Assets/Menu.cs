@@ -55,6 +55,7 @@ public class Menu : MonoBehaviour {
 
 
 	void Start() {
+
 		if (UnityEngine.Windows.File.Exists("carte 1.txt"))
 		{
 			p1 = true;
@@ -95,7 +96,7 @@ public class Menu : MonoBehaviour {
 	// Permet de personaliser les bouton
 	
 	void OnGUI () {
-
+		GUI.skin.button.fontSize = 0;
 		GUI.color = new Color (2, 1, 0, 1);       // changer les paramètres de la fonction change la couleur
 
 

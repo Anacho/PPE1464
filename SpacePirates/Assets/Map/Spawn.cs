@@ -15,7 +15,7 @@ public class Spawn : MonoBehaviour {
 	bool guiButton=true;
 
 	void OnGUI() {
-		if(!enemy && !Controller.bMapEditor){
+		if(enemy && !Controller.bMapEditor){
 			GUI.Label(new Rect(200,0,100,100),"Vague "+vague);
 			GUI.skin.button.fontSize = (int)(0.08*Screen.height);
 			if(guiButton){
@@ -58,8 +58,8 @@ public class Spawn : MonoBehaviour {
 
 
 	// spawn a new teddy each ... seconds
-	public float interval = 3.0f;
-	public float intervalVague=40.0f;
+	public float interval = 0.5f;
+	public float intervalVague=10.0f;
 	float timeLeftVague = 0.0f;
 	float timeLeft = 0.0f;
 	public int count = 0;

@@ -27,6 +27,7 @@ public class Controller : MonoBehaviour {
 	public GameObject NoRoad;
 	public GameObject RoadStart;
 	public GameObject RoadEnd;
+	public static int difficulty;
 
 	public struct Coord
 	{
@@ -65,7 +66,7 @@ public class Controller : MonoBehaviour {
 			loadingMap(false);
 			preparePath(false);
 		}
-		else
+		else if(!bLoading)
 		{
 			loadingMap(false);
 		}
@@ -82,7 +83,7 @@ public class Controller : MonoBehaviour {
 			MapArray[(MapSizeX-1)/2, MapSizeY-1] = "-1";
 
 		}
-		else
+		else if(bMapEditor)
 		{
 			read (false);
 			loadingMap (false);
@@ -240,30 +241,15 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void OnGUI ()
 	{
-		if (bMapEditor)
-		{
-			if (GUI.Button (new Rect (10, 10, 100, 100), "Saving"))
-			{
+		if (bMapEditor) {
+			if (GUI.Button (new Rect (10, 10, 100, 100), "Saving")) {
 				if (getPath ())
 					saving ();
 			}
 
-			if(GUI.Button (new Rect (150, 10, 100, 100), "Quit"))
-			{
-				Application.LoadLevel("menu");
+			if (GUI.Button (new Rect (150, 10, 100, 100), "Quit")) {
+				Application.LoadLevel ("menu");
 			}
-
-			GUI.Box (new Rect (380, 10, 50, 25), "Start");
-			GUI.Box (new Rect (380, 310, 50, 25), "End");
-		}
-		else
-		{
-			GUI.Box (new Rect (240, 10, 50, 25), "Start");
-			GUI.Box (new Rect (240, 310, 50, 25), "End");
-
-			GUI.Box (new Rect (540, 10, 50, 25), "Start");
-			GUI.Box (new Rect (540, 310, 50, 25), "End");
-
 		}
 	}
 
@@ -559,6 +545,7 @@ public class Controller : MonoBehaviour {
 		} else
 			bMapEditor = true;
 
+		difficulty = System.Convert.ToInt32 (reader.ReadLine());
 		reader.Close();
 	}
 

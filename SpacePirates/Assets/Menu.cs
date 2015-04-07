@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Windows;
 #if NETFX_CORE
 using WinRTLegacy.IO;
+using UnityEngine.Windows;
 #else
 using System.IO;
 #endif
@@ -28,7 +28,6 @@ public class Menu : MonoBehaviour {
 	private string s_difficulte="Difficulté : Facile";
 	private string s_tuto="Tuto On";
 	public GUIStyle customButton;
-
 
 	// coordonnées des boutons
 
@@ -56,40 +55,53 @@ public class Menu : MonoBehaviour {
 
 	void Start() {
 
-		if (UnityEngine.Windows.File.Exists("carte 1.txt"))
+		if (File.Exists("carte 1.txt"))
 		{
 			p1 = true;
 		}
-		if (UnityEngine.Windows.File.Exists("carte 2.txt"))
+		if (File.Exists("carte 2.txt"))
 		{
 			p2 = true;
 		}
-		if (UnityEngine.Windows.File.Exists("carte 3.txt"))
+		if (File.Exists("carte 3.txt"))
 		{
 			p3 = true;
 		}
-		if (UnityEngine.Windows.File.Exists("carte 4.txt"))
+		if (File.Exists("carte 4.txt"))
 		{
 			p4 = true;
 		}
-		if (UnityEngine.Windows.File.Exists("carte 5.txt"))
+		if (File.Exists("carte 5.txt"))
 		{
 			p5 = true;
 		}
-		if (UnityEngine.Windows.File.Exists("carte 6.txt"))
+		if (File.Exists("carte 6.txt"))
 		{
 			p6 = true;
 		}
-		if (UnityEngine.Windows.File.Exists("carte 7.txt"))
+		if (File.Exists("carte 7.txt"))
 		{
 			p7 = true;
 		}
 
 		string fileName = "settings.txt";
-		StreamReader reader;
-		reader = new  StreamReader(fileName);
+
+        StreamReader reader;
+        //File.Create(fileName);
+        reader = new StreamReader(fileName, true);
 		s_carte = reader.ReadLine ();
+		reader.ReadLine ();
+		reader.ReadLine ();
+		i_difficulte = System.Convert.ToInt32(reader.ReadLine ());
 		reader.Close();
+
+		if (i_difficulte==1){
+			s_difficulte="Difficulté : Facile";         
+		}else if  (i_difficulte==2){
+			s_difficulte="Difficulté : Normal";
+		}else if (i_difficulte==3){
+			s_difficulte="Difficulté : Difficile";
+		}
 	}
 
 
@@ -121,9 +133,6 @@ public class Menu : MonoBehaviour {
 								if (menu_jouer == true) { 
 
 										menu_jouer = false;
-
-
-			
 								} else
 										menu_jouer = true;
 
@@ -503,37 +512,37 @@ public class Menu : MonoBehaviour {
 			// Supprime la carte
 				if (s_carte=="Carte 1")
 				{
-					UnityEngine.Windows.File.Delete("Carte 1.txt");
+					File.Delete("Carte 1.txt");
 					p1=false;
 				}
 				if (s_carte=="Carte 2")
 				{
-					UnityEngine.Windows.File.Delete("Carte 2.txt");
+					File.Delete("Carte 2.txt");
 					p2=false;
 				}
 			if (s_carte=="Carte 3")
 				{
-					UnityEngine.Windows.File.Delete("Carte 3.txt");
+					File.Delete("Carte 3.txt");
 					p3=false;
 				}
 			if (s_carte=="Carte 4") 
 				{
-					UnityEngine.Windows.File.Delete("Carte 4.txt");
+					File.Delete("Carte 4.txt");
 					p4=false;
 				}
 			if (s_carte=="Carte 5") 
 				{
-					UnityEngine.Windows.File.Delete("Carte 5.txt");
+					File.Delete("Carte 5.txt");
 					p5=false;
 				}
 			if (s_carte=="Carte 6") 
 				{
-					UnityEngine.Windows.File.Delete("Carte 6.txt");
+					File.Delete("Carte 6.txt");
 					p6=false;
 				}
 			if (s_carte=="Carte 7") 
 				{
-					UnityEngine.Windows.File.Delete("Carte 7.txt");
+					File.Delete("Carte 7.txt");
 					p7=false;
 				}
 
@@ -579,11 +588,13 @@ public class Menu : MonoBehaviour {
 	{
 		StreamWriter writer;
 		string fileName = "settings.txt";
+		//System.IO.File.CreateText(fileName);
 		writer = new StreamWriter (fileName);
+
 		writer.WriteLine (s_carte);
 		writer.WriteLine (load);
 		writer.WriteLine (gameMode);
-
+		writer.WriteLine (i_difficulte);
 		writer.Close (); 
 	}
 }

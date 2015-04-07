@@ -65,12 +65,15 @@ public class IA : MonoBehaviour {
 			if(listToBuild.Count>0)
 			{
 				if (Castle.enemyGold > 0) {
-					int rnd;
-					rnd = (int)(Random.Range (0, listToBuild.Count));
-					Debug.Log("x: "+listToBuild[rnd].x + " y: "+listToBuild[rnd].y);
-					BuildTurret (listToBuild [rnd], true);
-					listToBuild.RemoveAt(rnd);
-					Castle.enemyGold--;
+					if(Random.Range(0, 10) >= 10-Controller.difficulty)
+					{
+						int rnd;
+						rnd = (int)(Random.Range (0, listToBuild.Count));
+						Debug.Log("x: "+listToBuild[rnd].x + " y: "+listToBuild[rnd].y);
+						BuildTurret (listToBuild [rnd], true);
+						listToBuild.RemoveAt(rnd);
+						Castle.enemyGold--;
+					}
 				}
 			}
 			timeLeft=interval;

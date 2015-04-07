@@ -1,0 +1,15 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <LocalAssembly PathName="c:\users\quentin\desktop\ppe1464\build\spacepirates\obj\arm\debug\intermediatexaml\template.exe" HashGuid="ac5b1c31-3b47-3dc1-d433-ba43d8e45269" />
+    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windowsphoneapp\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\spacepirates\assembly-csharp.dll" HashGuid="9da8ea65-5f8b-13e6-828a-e53d3c1b5ff9" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\players\windowsphone81\arm\debug\bridgeinterface.winmd" HashGuid="d5152e36-4a6e-203d-791b-d687e2dfa924" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\spacepirates\unityengine.dll" HashGuid="5ac16355-8fa0-48e9-5bf5-c6e396cf8bdd" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\spacepirates\unityengine.ui.dll" HashGuid="7e441b3d-f42f-e6d4-8d46-963f8f8f9433" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\players\windowsphone81\arm\debug\unityenginedelegates.winmd" HashGuid="a758cda9-20bf-3e09-bb41-ffa443958e6c" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\players\windowsphone81\arm\debug\unityengineproxy.dll" HashGuid="92a70c00-a30d-4bf8-1ff3-e40d6c332c05" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\players\windowsphone81\arm\debug\unityplayer.winmd" HashGuid="388f3b34-cf39-8f4a-1174-94756ef30022" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\players\windowsphone81\arm\debug\winrtbridge.winmd" HashGuid="cf3e0929-2f95-f364-e32a-3c4c2f2669cc" />
+    <ReferenceAssembly PathName="c:\users\quentin\desktop\ppe1464\build\spacepirates\winrtlegacy.dll" HashGuid="844944be-ab5d-831f-f455-5e409fdfe575" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>

@@ -1,12 +1,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21113.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A513B19-3E02-41BF-8968-58BC58B0A6B3}") = "SpacePirates", "SpacePirates\SpacePirates.csproj", "{9A513B19-3E02-41BF-8968-58BC58B0A6B3}"
-  ProjectSection(ProjectDependencies) = postProject
-  EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpacePirates", "SpacePirates\SpacePirates.csproj", "{9A513B19-3E02-41BF-8968-58BC58B0A6B3}"
 EndProject
-
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM

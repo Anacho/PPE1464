@@ -6,11 +6,16 @@ public class Castle : MonoBehaviour {
 	public static int gold = 3; // start gold
 	public static int enemyGold = 3;
 	
-	public static int health = 30;
-	public static int enemyHealth = 30;
+	public static int health = 10;
+	public static int enemyHealth = 10;
 
 	public bool enemy = false;
 
+	void Start()
+	{
+		if(enemy) enemyHealth = enemyHealth * (Controller.difficulty);
+	}
+	
 	void OnGUI() {
 		if(!Controller.bMapEditor)
 		{
@@ -37,7 +42,9 @@ public class Castle : MonoBehaviour {
 				if(unites[i].transform.position.z <= (-22.5F)) {
 					if(!enemy){
 						// decrease castle health
-						health = health - 1;
+						if(unites[i].enemy)
+							health = health - 1;
+						else enemyHealth--;
 					}
 
 					// destroy unite
